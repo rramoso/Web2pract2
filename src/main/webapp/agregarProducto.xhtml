@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Pract 2</title>
+</h:head>
+<h:body>
+	<br />
+	<br />
+	<div style="width: 40%; margin: 0 auto">
+		<h:form id="registerForm">
+			<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+			<f:event listener="#{carritoBean.validarExistencia}" type="postValidate" />
+			<h:inputHidden id="productoIdHidden" value="#{carritoBean.actual.id}" />
+			<p:panel header="Agregar a carrito: #{carritoBean.actual.nombre}">
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputText value="Precio:" />
+					<h:outputText value="#{carritoBean.actual.precio}" />
+					<p:outputLabel value="Cantidad:" />
+					<p:inputMask id="inputCantidad" value="#{carritoBean.cantidad}" maxlength="2" mask="9?9" required="true" requiredMessage="Cantidad no debe ser vacia"/>
+					<p:commandButton value="Agregar a carrito" action="#{carritoBean.agregarACarrito}" ajax="true"/>
+					<p:button value="Productos Disponibles" outcome="productosDisponibles" />
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</div>
+</h:body>
+</html>
