@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en"
 	  xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -22,6 +22,37 @@
 					<p:password id="passInput" value="#{usuarioBean.password}" required="true" requiredMessage="Password no debe ser vacio"/>
 					<p:commandButton value="Log In" action="#{usuarioBean.iniciarSesion}" />
 					<p:button value="Registrar" href="registroUsuario.xhtml" />
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</div>
+</h:body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Pract 2</title>
+</h:head>
+<h:body>
+	<br />
+	<br />
+	<div style="width: 40%; margin: 0 auto">
+		<h:form id="loginForm">
+			<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+			<f:event listener="#{usuarioBean.validarCredenciales}" type="postValidate" />
+			<p:panel header="#{msg.login_form_message}>
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel value="#{msg.email}" />
+					<p:inputText id="emailInput" value="#{usuarioBean.email}" required="true" requiredMessage="Email no debe ser vacio"/>
+					<p:outputLabel value="#{msg.password}:" />
+					<p:password id="passInput" value="#{usuarioBean.password}" required="true" requiredMessage="Password no debe ser vacio"/>
+					<p:commandButton value="#{msg.log_in}" action="#{usuarioBean.iniciarSesion}" />
+					<p:button value="#{msg.sign_up}" href="registroUsuario.xhtml" />
 				</h:panelGrid>
 			</p:panel>
 		</h:form>
