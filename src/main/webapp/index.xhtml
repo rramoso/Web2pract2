@@ -14,14 +14,14 @@
 		<h:form id="loginForm">
 			<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 			<f:event listener="#{usuarioBean.validarCredenciales}" type="postValidate" />
-			<p:panel header="#{msg['login_form_message']}">
+			<p:panel header="#{msg.login_form_message}>
 				<h:panelGrid columns="2" cellpadding="5">
-					<p:outputLabel value="Email:" />
+					<p:outputLabel value="#{msg.email}" />
 					<p:inputText id="emailInput" value="#{usuarioBean.email}" required="true" requiredMessage="Email no debe ser vacio"/>
-					<p:outputLabel value="Password:" />
+					<p:outputLabel value="#{msg.password}:" />
 					<p:password id="passInput" value="#{usuarioBean.password}" required="true" requiredMessage="Password no debe ser vacio"/>
-					<p:commandButton value="Log In" action="#{usuarioBean.iniciarSesion}" />
-					<p:button value="Registrar" href="registroUsuario.xhtml" />
+					<p:commandButton value="#{msg.log_in}" action="#{usuarioBean.iniciarSesion}" />
+					<p:button value="#{msg.sign_up}" href="registroUsuario.xhtml" />
 				</h:panelGrid>
 			</p:panel>
 		</h:form>
